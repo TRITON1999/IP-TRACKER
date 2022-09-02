@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+.root{
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p{  position: absolute;
+    width: 220px;
+    top: 2%;
+    left: calc((100% - 220px)/2);
+    color: white;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header{
+    background: url("./pattern-bg.png");
+    height: 30%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    z-index: 5;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#map{
+    height: 70%;
+    width: 100%;
+    position: relative;
+    z-index: 2;
 }
-
-.App-link {
-  color: #61dafb;
+.inputs{
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 0;
+    height: 18%;
+    width: 400px;
+    top: calc(100%/3 + 6%);
+    left : calc((100% - 400px)/2);
+    background-color: white;
+    text-align: center;
+    border-radius: 10px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.inputs input{
+    border: none;
+    width: 80%;
+    margin-left: 5%;
+    border: none;
+}
+.inputs span{
+    height: 100%;
+    width: 15%;
+    background-color: black;
+    padding-right: 0;
+    border-radius: 0 10px 10px 0;
+}
+.info{
+    border: 1px solid;
+    width: 80%;
+    height: calc(150%/3);
+    bottom: calc(-150%/6);
+    left: 10%;
+    border-radius: 5px;
+    background-color: white;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1%;
+    place-self: center;
+}
+.info .card{
+    padding: 10px;
+    padding-left: 20px;
+    border: 1px solid;
+    border-bottom: none;
+    border-top: none;
+    border-left: none;
 }
