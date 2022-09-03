@@ -39,9 +39,26 @@ function App() {
   }
 
   const handleChange = e => setIpInp(e.target.value)
+  const IPFormatChecker = (v) =>{
+    let k=0;
+    for(var i=0;i<v.length;++i){
+      if(v[i]==='.'){
+       k++;
+      }
+      else if (v[i]!=='1'&&v[i]!=='2'&&v[i]!=='3'&&v[i]!=='4'&&v[i]!=='5'&&v[i]!=='6'&&v[i]!=='7'&&v[i]!=='8'&&v[i]!=='9'&&v[i]!=='0'){
+        return false;       
+      }
+    }
+    if(k!==3)
+      return false;
+    return true;
+  }
   const handleClick = () => {
     console.log("clicked")
+    if(IPFormatChecker(ipinp))
     fetchIpAdd(ipinp)
+    else
+    alert("please recheck your inout")
   }
 
   useEffect( () => {
@@ -50,13 +67,13 @@ function App() {
 
 
   return <div className="root"><div className="header"><p>IP Address Tracker</p> <div className="inputs">
-      <input placeholder="Enter the IP Address" type="text" onChange={handleChange}/> <span onClick={handleClick}></span>
+      <input placeholder="Enter the IP Address" type="text" onChange={handleChange}/> <span onClick={handleClick}>Search</span>
     </div>
     <div className="info">
-      <div className="card"><div>IP</div><div>{res.ip}</div></div>
-      <div className="card"><div>LOCATION</div><div>{res.city + " / " + res.region}</div></div>
-      <div className="card"><div>TIMEZOME</div><div>{"UTC " + res.timezone?.utc}</div></div>
-      <div className="card"><div>{res.timezone?.abbr}</div><div>{res.timezone?.ip}</div></div>
+      <div className="card"><h1>IP</h1><div>{res.ip}</div></div>
+      <div className="card"><h1>LOCATION</h1><div>{res.city + " / " + res.region}</div></div>
+      <div className="card"><h1>TIMEZOME</h1><div>{"UTC " + res.timezone?.utc}</div></div>
+      <div className="card"><h1>{res.timezone?.abbr}</h1><div>{res.timezone?.utc}</div></div>
     </div>
   </div>
   <div id="map">
